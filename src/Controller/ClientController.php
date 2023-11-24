@@ -13,9 +13,8 @@ class ClientController
     public function info($prenom): Response
     {
         if (strpos($prenom, '-') !== false) {
-            // Le prénom contient un tiret, renvoyez un message d'erreur
             $errorResponse = new Response('Le prénom ne doit pas contenir de tirets.');
-            $errorResponse->setStatusCode(Response::HTTP_BAD_REQUEST); // Code d'erreur 400 Bad Request
+            $errorResponse->setStatusCode(Response::HTTP_BAD_REQUEST); 
             return $errorResponse;
         }
         return new Response('Prénom spécifié : ' . $prenom);
